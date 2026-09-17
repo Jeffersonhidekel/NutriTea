@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NutriTeia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="img/Gemini_Generated_Image_oeneijoeneijoene.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-title">NutriTeia</div>
+    </header>
+    
+    <div class="main-container">
+        <h2 class="section-title">Acesse sua Conta</h2>
+
+        <div class="welcome-card">
+           <form action="login.php" method="POST">
+                <div class="form-group">
+                    <label for="login">E-mail ou Login</label>
+                    <input type="text" id="login" placeholder="Digite seu e-mail ou login" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="actions-grid" style="margin-top: 20px;">
+                    <button type="submit" class="btn-action">Entrar</button> 
+                    <button type="button" class="btn-secondary" onclick="window.location.href='cadastrodeusuario.html'">Cadastrar-se</button>
+                </div>    
+            </form>
+        </div>
+
+        <div class="disclaimer-banner">
+            ⚠️ <strong>Aviso Importante:</strong> O NutriTeia é um instrumento de auxílio para organização sensorial e nutricional. Não substitui orientações médicas ou nutricionais.
+        </div>
+    </div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js');
+      }
+    </script>
+</body>
+</html>

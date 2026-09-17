@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar Alimento - NutriTeia</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-title">NutriTeia</div>
+  <a href="principal.html" style="color:white; text-decoration:none;">Voltar</a>
+</header>
+
+<div class="main-container">
+  <h2 class="section-title">Cadastro de Alimento Personalizado</h2>
+
+ <form action="cadastrar_alimento.php" method="POST">
+
+    <div class="card">
+      <h2>Dados Básicos</h2>
+      <div class="form-group">
+        <label for="nome">Nome do Alimento</label>
+        <input type="text" id="nome" maxlength="30" required placeholder="Ex: Bolinho de Arroz com Cenoura">
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria" maxlength="30" required placeholder="Ex: Cereais, Vegano, Lanches">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Atributos Sensoriais</h2>
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="textura">Textura</label>
+          <select id="textura" required>
+            <option value="">Selecione...</option>
+            <option value="Crocante">Crocante</option>
+            <option value="Macio">Macio</option>
+            <option value="Pastoso">Pastoso</option>
+            <option value="Liquido">Líquido</option>
+            <option value="Duro">Duro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cor">Cor Predominante</label>
+          <input type="text" id="cor" placeholder="Ex: Amarelo, Laranja" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="aroma">Aroma</label>
+          <select id="aroma" required>
+            <option value="">Selecione...</option>
+            <option value="Suave">Suave</option>
+            <option value="Forte">Forte</option>
+            <option value="Neutro">Neutro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="temperatura">Temperatura Habitual</label>
+          <select id="temperatura" required>
+            <option value="">Selecione...</option>
+            <option value="Quente">Quente</option>
+            <option value="Morno">Morno</option>
+            <option value="Gelado">Gelado</option>
+            <option value="Temperatura ambiente">Temperatura Ambiente</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sabor">Sabor</label>
+        <select id="sabor" required>
+          <option value="">Selecione...</option>
+          <option value="Doce">Doce</option>
+          <option value="Salgado">Salgado</option>
+          <option value="Azedo">Azedo</option>
+          <option value="Amargo">Amargo</option>
+          <option value="Sem sabor">Sem sabor / Suave</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Macronutrientes (por 100g)</h2>
+      <div class="grid-2">
+        <div class="form-group"><label for="kcal">Energia (Kcal)</label><input type="number" id="kcal" step="0.01" min="0" required></div>
+        <div class="form-group"><label for="proteinas">Proteínas (g)</label><input type="number" id="proteinas" step="0.01" min="0" required></div>
+        <div class="form-group"><label for="carboidrato">Carboidratos (g)</label><input type="number" id="carboidrato" step="0.01" min="0" required></div>
+        <div class="form-group"><label for="gordura">Gordura (g)</label><input type="number" id="gordura" step="0.01" min="0" required></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Micronutrientes Chave</h2>
+      <div class="grid-2">
+        <div class="form-group"><label for="ferro">Ferro (mg)</label><input type="number" id="ferro" step="0.01" min="0"></div>
+        <div class="form-group"><label for="vitamina_b12">Vitamina B12 (mcg)</label><input type="number" id="vitamina_b12" step="0.01" min="0"></div>
+        <div class="form-group"><label for="calcio">Cálcio (mg)</label><input type="number" id="calcio" step="0.01" min="0"></div>
+        <div class="form-group"><label for="zinco">Zinco (mg)</label><input type="number" id="zinco" step="0.01" min="0"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <button type="button" class="btn" style="background:#888;" onclick="window.location.href='principal.html'">Cancelar</button>
+      <button type="submit" class="btn-action">Cadastrar Alimento</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function salvarAlimento(e) {
+    e.preventDefault();
+    alert('Alimento cadastrado com sucesso!');
+    window.location.href = 'principal.html';
+  }
+</script>
+</body>
+</html>

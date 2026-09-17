@@ -1,0 +1,70 @@
+CREATE DATABASE IF NOT EXISTS nutriteia CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE nutriteia;
+
+-- 1. Tabela TUTOR (Responsável / Cuidador)
+CREATE TABLE IF NOT EXISTS TUTOR (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(100) NOT NULL,
+    e_mail VARCHAR(150) NOT NULL UNIQUE,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    Login VARCHAR(150) NOT NULL UNIQUE,
+    Senha VARCHAR(255) NOT NULL,
+    Data_Cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- 2. Tabela TUTELADO (Pessoa com TEA)
+CREATE TABLE IF NOT EXISTS TUTELADO (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    id_tutor INT NOT NULL,
+    NOME VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
+    grau_tea TINYINT NOT NULL COMMENT 'Nível de Suporte (1, 2 ou 3)',
+    preferencia_alimentar TEXT DEFAULT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_tutelado_tutor FOREIGN KEY (id_tutor) REFERENCES TUTOR(ID) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- 3. Tabela ALIMENTO (Tabela Tabela TACO / Customizados)
+CREATE TABLE IF NOT EXISTS ALIMENTO (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Id_Tutor INT DEFAULT NULL COMMENT 'NULL indica alimento padrão do sistema; ID preenchido indica alimento customizado pelo tutor',
+    NOME VARCHAR(100) NOT NULL,
+    Categoria VARCHAR(50) NOT NULL,
+    Textura VARCHAR(50) NOT NULL,
+    Cor VARCHAR(50) NOT NULL,
+    Aroma VARCHAR(50) NOT NULL,
+    Temperatura VARCHAR(50) NOT NULL,
+    Sabor VARCHAR(50) NOT NULL,
+    kcal DECIMAL(6, 2) DEFAULT 0.00,
+    proteinas DECIMAL(6, 2) DEFAULT 0.00,
+    carboidrato DECIMAL(6, 2) DEFAULT 0.00,
+    gordura DECIMAL(6, 2) DEFAULT 0.00,
+    fibra DECIMAL(6, 2) DEFAULT 0.00,
+    ferro DECIMAL(6, 2) DEFAULT 0.00,
+    vitamina_b12 DECIMAL(6, 2) DEFAULT 0.00,
+    calcio DECIMAL(6, 2) DEFAULT 0.00,
+    zinco DECIMAL(6, 2) DEFAULT 0.00,
+    CONSTRAINT fk_alimento_tutor FOREIGN KEY (Id_Tutor) REFERENCES TUTOR(ID) 
+        ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- 4. Tabela REGISTRO (Histórico de Refeições e Aceitação Sensorial)
+CREATE TABLE IF NOT EXISTS REGISTRO (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    id_Tutelado INT NOT NULL,
+    id_Tutor INT NOT NULL,
+    id_Alimento INT NOT NULL,
+    data DATE NOT NULL,
+    hora TIME NOT NULL,
+    quantidade DECIMAL(6, 2) NOT NULL,
+    reacao VARCHAR(50) NOT NULL,
+    motivo_sensorial VARCHAR(255) DEFAULT NULL,
+    CONSTRAINT fk_registro_tutelado FOREIGN KEY (id_Tutelado) REFERENCES TUTELADO(ID) 
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_registro_tutor FOREIGN KEY (id_Tutor) REFERENCES TUTOR(ID) 
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_registro_alimento FOREIGN KEY (id_Alimento) REFERENCES ALIMENTO(ID) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;

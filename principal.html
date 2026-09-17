@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NutriTeia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#89CFF0">
+</head>
+<body>
+
+  <header>
+    <div class="header-title">NutriTeia</div>
+    <div class="header-user">
+      <span>Olá, Cuidador</span>
+      <div class="header-logo">
+        <img src="img/Gemini_Generated_Image_oeneijoeneijoene.png" width="24" height="24" alt="Logo">
+      </div>
+    </div>
+  </header>
+  
+  <div class="main-container">
+    <h2 class="section-title">Painel de Acompanhamento</h2>
+
+    <div class="welcome-card">
+      <div class="profiles-wrapper">
+        <div class="profile-box">
+          <img src="img/Gemini_Generated_Image_oeneijoeneijoene.png" alt="Foto do Cuidador" class="avatar-img" id="imgCaregiver">
+          <label class="edit-badge" title="Alterar foto">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+            <input type="file" accept="image/*" onchange="previewImage(event, 'imgCaregiver')">
+          </label>
+          <div style="font-size: 0.85rem; margin-top:5px; font-weight:bold;">Tutor</div>
+        </div>
+
+        <div class="profile-box">
+          <img src="img/Gemini_Generated_Image_oeneijoeneijoene.png" alt="Foto do Tutelado" class="avatar-img" id="imgChild">
+          <label class="edit-badge" title="Alterar foto">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+            <input type="file" accept="image/*" onchange="previewImage(event, 'imgChild')">
+          </label>
+          <div style="font-size: 0.85rem; margin-top:5px; font-weight:bold;">Lucas (Tutelado)</div>
+        </div>
+      </div>
+
+      <div class="actions-grid">
+        <button class="btn-action" onclick="window.location.href='registrar_refeicao.html'">🍽️ Registrar Refeição</button>
+        <button class="btn-secondary" onclick="window.location.href='historico.html'">📜 Histórico & Linha do Tempo</button>
+        <button class="btn-action" onclick="window.location.href='relatorios.html'">📊 Relatórios & Alertas</button>
+        <button class="btn-secondary" onclick="window.location.href='cadastro_alimento.html'">🍎 Cadastrar Alimento</button>
+        <button class="btn-secondary" onclick="window.location.href='cadastrotutelado.html'">👤 Cadastrar Tutelado</button>
+        <button class="btn-outline" onclick="window.location.href='Login.html'">🚪 Sair</button>
+      </div>
+    </div>
+
+    <!-- RF13: Aviso visível -->
+    <div class="disclaimer-banner">
+      ⚕️ <strong>Aviso Importante (RF13):</strong> O NutriTeia auxilia no mapeamento sensorial e nutricional, mas <u>não emite diagnósticos e não substitui o acompanhamento profissional</u> de nutricionistas, terapeutas ocupacionais ou médicos.
+    </div>
+  </div>
+
+  <script>
+    function previewImage(event, targetId) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) { document.getElementById(targetId).src = e.target.result; }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
