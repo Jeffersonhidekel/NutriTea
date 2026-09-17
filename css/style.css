@@ -1,0 +1,279 @@
+:root {
+  --azul-bebe: #89CFF0;
+  --azul-escuro: #2b78a3;
+  --coral-claro: #F08080;
+  --coral-hover: #e06d6d;
+  --bg-cinza: #f4f7f6;
+  --branco: #ffffff;
+  --texto: #333333;
+  --texto-suave: #666666;
+  --borda: #dddddd;
+  --sucesso: #4CAF50;
+  --alerta: #FF9800;
+  --perigo: #f44336;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--bg-cinza);
+  color: var(--texto);
+  padding-bottom: 40px;
+}
+
+
+header {
+  background-color: var(--azul-bebe);
+  color: var(--branco);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.header-logo img {
+  border-radius: 50%;
+  background: white;
+}
+
+
+.main-container {
+  max-width: 750px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--texto);
+  font-size: 1.5rem;
+}
+
+
+.card, .welcome-card {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  color: var(--azul-escuro);
+  border-bottom: 2px solid var(--azul-bebe);
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+  font-size: 1.15rem;
+}
+
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--azul-bebe);
+}
+
+
+.btn, .btn-action, .btn-secondary, .btn-danger {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-action, .btn-primary {
+  background-color: var(--coral-claro);
+  color: var(--branco);
+}
+
+.btn-action:hover, .btn-primary:hover {
+  background-color: var(--coral-hover);
+}
+
+.btn-secondary, .btn {
+  background-color: var(--azul-bebe);
+  color: var(--branco);
+}
+
+.btn-secondary:hover, .btn:hover {
+  background-color: var(--azul-escuro);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--texto-suave);
+  color: var(--texto-suave);
+}
+
+.btn-danger {
+  background-color: var(--perigo);
+  color: var(--branco);
+}
+
+/* Perfis / Avatares */
+.profiles-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.profile-box {
+  position: relative;
+  text-align: center;
+}
+
+.avatar-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--azul-bebe);
+}
+
+.edit-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--coral-claro);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.edit-badge input[type="file"] {
+  display: none;
+}
+
+/* Grids */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 500px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Banners e Alertas (RF13) */
+.disclaimer-banner {
+  background-color: #fff8e1;
+  border-left: 5px solid var(--alerta);
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #795548;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* Badges e Status */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--branco);
+}
+
+.badge-aceitou { background-color: var(--sucesso); }
+.badge-parcial { background-color: var(--alerta); }
+.badge-recusa { background-color: var(--perigo); }
+
+/* Linha do Tempo e Tabelas */
+.timeline-item {
+  border-left: 3px solid var(--azul-bebe);
+  padding-left: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--coral-claro);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid var(--borda);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: var(--azul-bebe);
+  color: var(--branco);
+}

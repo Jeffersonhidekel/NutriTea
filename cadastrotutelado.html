@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tutelado - NutriTea</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="shortcut icon" href="img/Gemini_Generated_Image_oeneijoeneijoene.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="header-title">NutriTea</div>
+    <a href="principal.html" style="color:white; text-decoration:none;">Voltar</a>
+  </header>
+
+  <div class="main-container">
+    <h2 class="section-title">Cadastrar Pessoa Assistida (Tutelado)</h2>
+
+    <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Perfil criado com sucesso!'); window.location.href='principal.html';">
+
+            <div class="form-group">
+                <label for="nome_tutelado">Nome do Tutelado / Criança</label>
+                <input type="text" id="nome_tutelado" required placeholder="Ex: Lucas Silva">
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="data_nascimento">Data de Nascimento</label>
+                    <input type="date" id="data_nascimento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" required>
+                        <option value="">Selecione...</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nivel_suporte">Nível de Suporte TEA (Grau)</label>
+                <select id="nivel_suporte" required>
+                    <option value="1">Nível 1 - Suporte Leve</option>
+                    <option value="2">Nível 2 - Suporte Moderado</option>
+                    <option value="3">Nível 3 - Suporte Substancial / Severo</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="preferencias">Preferências / Aversões Iniciais Conhecidas</label>
+                <textarea id="preferencias" rows="3" placeholder="Ex: Aceita alimentos crocantes, recusa texturas pastosas..."></textarea>
+            </div>
+
+            <div class="grid-2">
+                <button type="button" class="btn" style="background:#888;" onclick="window.location.href='principal.html'">Cancelar</button>
+                <button type="submit" class="btn-action">Salvar Perfil</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</body>
+</html>

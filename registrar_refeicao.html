@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Refeição - NutriTeia</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="shortcut icon" href="img/Gemini_Generated_Image_oeneijoeneijoene.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="header-title">NutriTeia</div>
+    <a href="principal.html" style="color:white; text-decoration:none;">Voltar</a>
+  </header>
+
+  <div class="main-container">
+    <h2 class="section-title">Registro de Refeição</h2>
+
+    <div class="card">
+        <form onsubmit="salvarRefeicao(event)">
+            
+            <div class="form-group">
+                <label for="tutelado">Selecione a Pessoa Assistida</label>
+                <select id="tutelado" required>
+                    <option value="1"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="alimento">Selecione o Alimento</label>
+                <select id="alimento" required>
+                    <option value="">Escolha um alimento...</option>
+                    <option value="1">Banana Prata (Macio, Doce, Amarelo)</option>
+                    <option value="2">Brócolis Cozido (Macio, Verde, Aroma Forte)</option>
+                    <option value="3">Biscoito de Polvilho (Crocante, Salgado, Branco)</option>
+                </select>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade Oferecida / Consumida (g)</label>
+                <input type="number" id="quantidade" placeholder="Ex: 80" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reacao">Reação Comportamental </label>
+                <select id="reacao" required onchange="toggleMotivoSensorial(this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="Aceitou">Aceitou Totalmente</option>
+                    <option value="Parcial">Aceitação Parcial</option>
+                    <option value="Recusa">Recusa Total</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="box-sensorial" style="display:none; background:#fff3e0; padding:12px; border-radius:8px;">
+                <label for="motivo_sensorial" style="color:#e65100;">Mapeamento do Motivo Sensorial da Recusa (RF03)</label>
+                <select id="motivo_sensorial">
+                    <option value="">Qual atributo causou aversão?</option>
+                    <option value="Textura">Textura (Ex: muito pastoso, crocante demais)</option>
+                    <option value="Cor">Cor (Ex: rejeitou a cor do alimento)</option>
+                    <option value="Aroma">Aroma (Ex: cheiro muito forte)</option>
+                    <option value="Temperatura">Temperatura (Ex: frio / quente demais)</option>
+                </select>
+            </div>
+
+            <div class="grid-2" style="margin-top: 20px;">
+                <button type="button" class="btn" style="background:#888;" onclick="window.location.href='principal.html'">Cancelar</button>
+                <button type="submit" class="btn-action">Salvar Registro</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <script>
+    // Define a data/hora atual por padrão
+    document.getElementById('data').value = new Date().toISOString().split('T')[0];
+    document.getElementById('hora').value = new Date().toTimeString().substring(0,5);
+
+    function toggleMotivoSensorial(valor) {
+      const box = document.getElementById('box-sensorial');
+      box.style.display = (valor === 'Parcial' || valor === 'Recusa') ? 'block' : 'none';
+    }
+
+    function salvarRefeicao(e) {
+      e.preventDefault();
+      alert('Registro salvo com sucesso!');
+      window.location.href = 'historico.html';
+    }
+  </script>
+</body>
+</html>

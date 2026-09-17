@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Técnico - NutriTeia</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="shortcut icon" href="img/Gemini_Generated_Image_oeneijoeneijoene.png" type="image/x-icon">
+    <style>
+      @media print {
+        header, .no-print { display: none !important; }
+        .main-container { width: 100%; max-width: 100%; margin: 0; }
+      }
+    </style>
+</head>
+<body>
+  <header class="no-print">
+    <div class="header-title">NutriTeia</div>
+    <a href="principal.html" style="color:white; text-decoration:none;">Voltar</a>
+  </header>
+
+  <div class="main-container">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;" class="no-print">
+        <h2 class="section-title" style="margin:0;">Relatório Sensorial e Nutricional</h2>
+        <button class="btn-action" onclick="window.print()" style="width:auto; padding:8px 15px;">🖨️ Exportar PDF </button>
+    </div>
+
+    <!-- RF13: Disclaimer visível no relatório -->
+    <div class="disclaimer-banner">
+      📑 <strong>Relatório Técnico para Consulta Profissional:</strong> Este documento compila o histórico informado pelo cuidador. Não possui caráter prescritivo e destina-se ao apoio em consultas com Nutricionistas e Médicos.
+    </div>
+
+    <div class="card">
+        <h2>Resumo do Período (Últimos 30 dias)</h2>
+        <p><strong>Tutelado:</strong> jef</p>
+        <p><strong>Total de Refeições Registradas:</strong> 0</p>
+        <p><strong>Taxa de Aceitação:</strong> 0</p>
+    </div>
+
+    <div class="card">
+        <h2>Alertas de Lacunas Nutricionais </h2>
+        <p style="font-size:0.9rem; color:#555; margin-bottom:10px;">Estimativa com base nos alimentos efetivamente aceitos:</p>
+        
+        <div style="background:#ffebee; padding:12px; border-radius:8px; margin-bottom:10px; border-left:4px solid var(--perigo);">
+            <strong style="color:var(--perigo);">⚠️ Possível Lacuna de Ferro (Fe):</strong>
+            <p style="font-size:0.85rem;">Ingestão estimada abaixo dos valores de referência diários (DRI).</p>
+        </div>
+
+        <div style="background:#ffebee; padding:12px; border-radius:8px; border-left:4px solid var(--perigo);">
+            <strong style="color:var(--perigo);">⚠️ Atenção para Vitamina B12:</strong>
+            <p style="font-size:0.85rem;">Pouca variação de fontes proteicas aceitas. Recomendada avaliação médica.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Mapeamento de Aversões Sensoriais </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Atributo Sensorial</th>
+                    <th>Frequência de Recusa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Textura Pastosa / Molhada</td>
+                    <td>55% das recusas</td>
+                </tr>
+                <tr>
+                    <td>Aroma Forte</td>
+                    <td>30% das recusas</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Sugestões de Alimentos por Proximidade Sensorial </h2>
+        <p style="font-size:0.9rem; color:#555; margin-bottom:10px;">Com base em alimentos já aceitos (ex: Crocante / Doce):</p>
+        <ul>
+            <li style="margin-bottom:6px;">🍎 <strong>Maçã Desidratada:</strong> Mantém a crocância aceita e sabor suave.</li>
+            <li style="margin-bottom:6px;">🥕 <strong>Chips de Cenoura Assada:</strong> Mantém textura crocante e introduz novos micronutrientes.</li>
+        </ul>
+    </div>
+  </div>
+</body>
+</html>

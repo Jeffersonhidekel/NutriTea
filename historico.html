@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico Alimentar - NutriTea</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="shortcut icon" href="img/Gemini_Generated_Image_oeneijoeneijoene.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="header-title">NutriTea</div>
+    <a href="principal.html" style="color:white; text-decoration:none;">Voltar</a>
+  </header>
+
+  <div class="main-container">
+    <h2 class="section-title">Histórico de Refeições</h2>
+
+    <div class="card">
+        <div class="grid-2">
+            <input type="text" placeholder="Filtrar por alimento...">
+            <select>
+                <option value="">Todas as reações</option>
+                <option value="Aceitou">Aceitação Total</option>
+                <option value="Recusa">Recusas</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="timeline-item">
+            <div style="display:flex; justify-content:space-between;">
+                <strong>Banana Prata (100g)</strong>
+                <span class="badge badge-aceitou">Aceitou</span>
+            </div>
+            <p style="font-size:0.85rem; color:#666; margin-top:4px;">Hoje às 09:30 • Lucas Silva</p>
+        </div>
+
+        <div class="timeline-item">
+            <div style="display:flex; justify-content:space-between;">
+                <strong>Brócolis Cozido (50g)</strong>
+                <span class="badge badge-recusa">Recusa Total</span>
+            </div>
+            <p style="font-size:0.85rem; color:#666; margin-top:4px;">Ontem às 12:15 • Motivo Sensorial: <strong>Aroma Forte</strong></p>
+            <div style="margin-top:5px; font-size:0.8rem;">
+                <a href="#" onclick="alert('Modo de edição aberto.');" style="color:var(--azul-escuro);">Editar</a> | 
+                <a href="#" onclick="confirm('Deseja excluir este registro?');" style="color:var(--perigo);">Excluir</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
